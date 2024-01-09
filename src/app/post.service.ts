@@ -33,6 +33,10 @@ export class PostService {
         }
         return postArray
       }))
+  }
 
+  deletePosts() {
+    return this.http
+      .delete("https://ng-http-7339f-default-rtdb.firebaseio.com/posts.json")
   }
 }
