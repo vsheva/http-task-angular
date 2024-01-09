@@ -37,7 +37,8 @@ export class PostService {
       .get<{ [key: string]: Post }>("https://ng-http-7339f-default-rtdb.firebaseio.com/posts.json", {
         headers: new HttpHeaders({"my-header": "hello"}),
         //params:new HttpParams().set("print", "pretty")
-        params: searchParams
+        params: searchParams,
+        responseType:"json"
       })
       .pipe(map((responseData) => {
           const postArray: Post[] = [];
@@ -58,7 +59,8 @@ export class PostService {
     return this.http
       .delete("https://ng-http-7339f-default-rtdb.firebaseio.com/posts.json",
         {
-          observe: 'events'
+          observe: 'events',
+          responseType:"json"
         })
       .pipe(
         tap((event) => {
